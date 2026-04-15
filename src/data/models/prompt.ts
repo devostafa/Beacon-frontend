@@ -1,5 +1,4 @@
 export interface Prompt {
-    userId: string
-    
+    sessionId: string
     prompt: string
 }

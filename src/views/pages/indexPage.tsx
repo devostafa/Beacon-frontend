@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
+import ChatBar from "../components/chatBar.tsx";
 
-function ChatBar() {
-    const [placeHolderMessage, setPlaceholderMessage] = useState("What's on your mind?... ");
 
-    return (
-        <div>
-            <input type="text" placeholder={placeHolderMessage} />
-        </div>
-    )
-}
 
 export default function IndexPage() {
     const [messages, setMessages] = useState([])
+
+
+  useState(() => {
+    fetch('https://localhost:3000/messages')
+      .then(response => response.json())
+      .then(data => setMessages(data))
+  })
 
     return (
         <div className='index-page'>
